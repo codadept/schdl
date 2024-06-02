@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/codadept/schdl/internal/util"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 type Storage struct {
@@ -13,6 +14,7 @@ type Storage struct {
 
 func NewStorage(dbFile string) (*Storage, error) {
 	db, err := sql.Open("sqlite3", dbFile)
+
 	if err != nil {
 		return nil, fmt.Errorf("failed to open database: %w", err)
 	}
