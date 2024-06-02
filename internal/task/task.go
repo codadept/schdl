@@ -1,41 +1,38 @@
 package task
 
 import (
-	"errors"
-	"time"
+	"github.com/codadept/schdl/internal/storage"
+	"github.com/codadept/schdl/internal/util"
 )
 
-type Priority string
+func CreateTask(storage *storage.Storage, newTask *util.Task) (*util.Task, error) {
 
-const (
-	High   Priority = "high"
-	Medium Priority = "medium"
-	Low    Priority = "low"
-)
-
-type Task struct {
-	ID          int
-	Description string
-	DueDate     time.Time
-	Priority    Priority
-}
-
-func ValidatePriority(priority Priority) error {
-	switch priority {
-	case High, Medium, Low:
-		return nil
-	default:
-		return errors.New("invalid priority")
+	if err := util.ValidateTask(newTask); err != nil {
+		return nil, err
 	}
+
+	taskID, err := storage.AddTask(newTask)
+	if err != nil {
+		return nil, err
+	}
+
+	newTask.ID = taskID
+
+	return newTask, nil
 }
 
-func createTask() {}
+func DeleteTask(storage *storage.Storage, id int) error {
+	return storage.DeleteTask(id)
+}
 
-func deleteTask() {}
+func UpdateTask(storage *storage.Storage, updatedTask *util.Task) error {
+	if err := util.ValidateTask(updatedTask); err != nil {
+		return err
+	}
 
-func updateTask() {}
+	return storage.UpdateTask(updatedTask)
+}
 
-func getListOfTasks() []Task {
-	var task []Task = []Task{{1, "demo", time.Now(), "high"}}
-	return task
+func GetListOfTasks(storage *storage.Storage) ([]util.Task, error) {
+	return storage.ListTasks()
 }
