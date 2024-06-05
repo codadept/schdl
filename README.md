@@ -2,9 +2,9 @@
 
 An Interactive Terminal Task Scheduler Made in Golang
 
-[![GitHub release](https://img.shields.io/github/tag/codadept/schdl.svg?label=latest)](https://github.com/manifoldco/promptui/releases)
+[![GitHub release](https://img.shields.io/github/tag/codadept/schdl.svg?label=latest)](https://github.com/codadept/schdl/releases)
 [![License](https://img.shields.io/github/license/codadept/schdl)](./LICENSE)
-![Go Version](https://img.shields.io/github/go-mod/go-version/codadept/schdl)
+[![Go Report Card](https://goreportcard.com/badge/github.com/codadept/schdl)](https://goreportcard.com/report/github.com/codadept/schdl)
 
 ## Table of Contents
 
