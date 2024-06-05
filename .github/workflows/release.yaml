@@ -25,6 +25,9 @@ jobs:
       - name: Archive binary
         run: zip -r schdl.zip schdl
 
+      - name: Debug GitHub Ref
+        run: "echo GitHub Ref: ${{ github.ref }}"
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
