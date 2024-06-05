@@ -1,41 +1,45 @@
+// Package task provides functionality for Creating, Updating, Deleting and Listing all the task from the storage source
 package task
 
 import (
-	"errors"
-	"time"
+	"github.com/codadept/schdl/internal/storage"
+	"github.com/codadept/schdl/internal/util"
 )
 
-type Priority string
-
-const (
-	High   Priority = "high"
-	Medium Priority = "medium"
-	Low    Priority = "low"
-)
-
-type Task struct {
-	ID          int
-	Description string
-	DueDate     time.Time
-	Priority    Priority
-}
-
-func ValidatePriority(priority Priority) error {
-	switch priority {
-	case High, Medium, Low:
-		return nil
-	default:
-		return errors.New("invalid priority")
+// CreateTask creates a new task using the provided storage and task details.
+// It validates the new task and adds it to the storage.
+func CreateTask(storage *storage.Storage, newTask *util.Task) (*util.Task, error) {
+	// Validate the new task
+	if err := util.ValidateTask(newTask); err != nil {
+		return nil, err
 	}
+
+	// Add the task to the storage
+	taskID, err := storage.AddTask(newTask)
+	if err != nil {
+		return nil, err
+	}
+
+	newTask.ID = taskID
+	return newTask, nil
 }
 
-func createTask() {}
+// DeleteTask deletes a task with the specified ID from the storage.
+func DeleteTask(storage *storage.Storage, id int) error {
+	return storage.DeleteTask(id)
+}
 
-func deleteTask() {}
+// UpdateTask updates an existing task with the provided updated task details in the storage.
+func UpdateTask(storage *storage.Storage, updatedTask *util.Task) error {
+	// Validate the updated task
+	if err := util.ValidateTask(updatedTask); err != nil {
+		return err
+	}
 
-func updateTask() {}
+	return storage.UpdateTask(updatedTask)
+}
 
-func getListOfTasks() []Task {
-	var task []Task = []Task{{1, "demo", time.Now(), "high"}}
-	return task
+// GetListOfTasks retrieves a list of all tasks stored in the storage.
+func GetListOfTasks(storage *storage.Storage) ([]util.Task, error) {
+	return storage.ListTasks()
 }
