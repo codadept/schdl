@@ -1,48 +1,64 @@
-# schdl - An Interactive Terminal Scheduler Made in Golang
+# schdl
+
+An Interactive Terminal Task Scheduler Made in Golang
+
+![Build Status](https://img.shields.io/github/actions/workflow/status/codadept/schdl/build.yml)
+![License](https://img.shields.io/github/license/codadept/schdl)
+![Go Version](https://img.shields.io/github/go-mod/go-version/codadept/schdl)
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Installation](#installation)
-3. [Project Structure](#project-structure)
-4. [Contributing](#contributing)
-5. [License](#license)
+1. [Overview](#overview)
+2. [Pre-Requisite](#prerequisites)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Contributing](#contributing)
+6. [License](#license)
 
-## Introduction
+## Overview
 
 Schdl is a terminal-based task scheduler written in Golang. It allows users to manage their tasks efficiently by storing tasks along with their due date and time. Users can create, delete, update, and retrieve tasks using an interactive interface.
 
+![Demo](https://raw.githubusercontent.com/codadept/schdl/master/.github/demo.webm)
+
+## Prerequisites
+
+- Go 1.23 or higher
+- SQLite3
+
 ## Installation
 
-To install schdl, make sure you have Go installed on your machine. Then, follow these steps:
+1. Clone the repository:
 
-```sh
-go get github.com/codadept/schdl
-cd $GOPATH/src/github.com/codadept/schdl
-go build -o schdl
-```
+   ```sh
+   git clone https://github.com/codadept/schdl.git
+   ```
 
-## Project Structure
+2. Navigate to the project directory:
 
-The project is structured as follows:
+   ```sh
+   cd schdl
+   ```
 
-```
-schdl/
-├── cmd/
-│   └── schdl/
-│       └── main.go
-├── internal/
-│   ├── storage/
-│   │   └── storage.go
-│   ├── task/
-│   │   └── task.go
-│   ├── ui/
-│   │   └── ui.go
-│   └── util/
-├── LICENSE
-├── README.md
-├── go.mod
-```
+3. Install dependencies:
+
+   ```sh
+   go mod tidy
+   ```
+
+## Usage
+
+1. Build the project:
+
+   ```sh
+   go build -o schdl ./cmd/schdl
+   ```
+
+2. Run the application:
+
+   ```sh
+   ./schdl
+   ```
 
 ## Contributing
 
