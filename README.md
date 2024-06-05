@@ -19,7 +19,7 @@ An Interactive Terminal Task Scheduler Made in Golang
 
 Schdl is a terminal-based task scheduler written in Golang. It allows users to manage their tasks efficiently by storing tasks along with their due date and time. Users can create, delete, update, and retrieve tasks using an interactive interface.
 
-![Demo](https://raw.githubusercontent.com/codadept/schdl/master/.github/demo.webm)
+![Demo](https://github.com/codadept/schdl/raw/main/.github/demo.webm)
 
 ## Prerequisites
 
