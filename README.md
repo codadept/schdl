@@ -2,8 +2,8 @@
 
 An Interactive Terminal Task Scheduler Made in Golang
 
-![Build Status](https://img.shields.io/github/actions/workflow/status/codadept/schdl/build.yml)
-![License](https://img.shields.io/github/license/codadept/schdl)
+[![GitHub release](https://img.shields.io/github/tag/codadept/schdl.svg?label=latest)](https://github.com/manifoldco/promptui/releases)
+[![License](https://img.shields.io/github/license/codadept/schdl)](./LICENSE)
 ![Go Version](https://img.shields.io/github/go-mod/go-version/codadept/schdl)
 
 ## Table of Contents
@@ -12,8 +12,9 @@ An Interactive Terminal Task Scheduler Made in Golang
 2. [Pre-Requisite](#prerequisites)
 3. [Installation](#installation)
 4. [Usage](#usage)
-5. [Contributing](#contributing)
-6. [License](#license)
+5. [Dependencies](#dependencies)
+6. [Contributing](#contributing)
+7. [License](#license)
 
 ## Overview
 
@@ -59,6 +60,14 @@ Schdl is a terminal-based task scheduler written in Golang. It allows users to m
    ```sh
    ./schdl
    ```
+
+## Dependencies
+
+Schdl relies on the following dependencies:
+
+- [Promptui](https://github.com/manifoldco/promptui): A library for building interactive prompts in the terminal.
+- [Go-SQLite3](https://github.com/mattn/go-sqlite3): A SQLite3 driver for Go.
+- [GitHub Actions](https://github.com/features/actions): For automated workflows such as building and releasing.
 
 ## Contributing
 
